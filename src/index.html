@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tablero de Proyectos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Tablero de Proyectos</h1>
+    <div id="board" class="board">
+        <div class="column" data-status="pendiente">
+            <h2>Pendiente</h2>
+            <button onclick="addCard('pendiente')">+ Agregar</button>
+            <div class="cards" id="pendiente"></div>
+        </div>
+        <div class="column" data-status="ingresado">
+            <h2>Ingresado</h2>
+            <button onclick="addCard('ingresado')">+ Agregar</button>
+            <div class="cards" id="ingresado"></div>
+        </div>
+        <div class="column" data-status="en_produccion">
+            <h2>En Producción</h2>
+            <button onclick="addCard('en_produccion')">+ Agregar</button>
+            <div class="cards" id="en_produccion"></div>
+        </div>
+        <div class="column" data-status="publicado">
+            <h2>Publicado</h2>
+            <button onclick="addCard('publicado')">+ Agregar</button>
+            <div class="cards" id="publicado"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form id="cardForm" onsubmit="saveCard(event)">
+                <input type="hidden" id="cardId">
+                <input type="hidden" id="cardStatus">
+                <label>Título: <input type="text" id="cardTitle" required></label>
+                <label>Categoría: <input type="text" id="cardCategory"></label>
+                <label>Fecha de inicio: <input type="date" id="cardStart"></label>
+                <label>Fecha de fin: <input type="date" id="cardEnd"></label>
+                <label>Descripción:</label>
+                <div id="cardDescription" class="description" contenteditable="true"></div>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
